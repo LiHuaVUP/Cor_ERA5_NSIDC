@@ -6,6 +6,7 @@
 t2m_era=double(ncread('new_temp.nc','t2m'));
 lon_era=double(ncread('new_temp.nc','longitude'));
 lat_era=double(ncread('new_temp.nc','latitude'));
+[lat_era,lon_era]=meshgrid(lat_era,lon_era);
 ```
 海冰浓度数据来自NSIDC 2013年的北极海冰数据，原始数据时间步幅为两天一个数据点，为了保证两组数据时间精度一致，将其重新计算为月平均，故数据格式为(304,448,12)。
 ```
