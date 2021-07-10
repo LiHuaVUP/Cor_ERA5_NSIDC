@@ -1,13 +1,13 @@
 # 计算ERA5物理量与海冰之间的相关系数 - 插值，计算，与绘图
 
 ## 数据
-在此示例中，我们使用了两组数据，分别是2m 温度和海冰浓度。2m温度来自ERA5 monthly averaged data on single levels from 1979 to present中2013年的数据（https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=form)，数据精度为0.25度，每月一个时间层，故数据格式为1440*721*12。
+在此示例中，我们使用了两组数据，分别是2m 温度和海冰浓度。2m温度来自ERA5 monthly averaged data on single levels from 1979 to present中2013年的数据（https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=form)，数据精度为0.25度，每月一个时间层，故数据格式为(1440,721,12)。
 ```
 t2m_era=double(ncread('new_temp.nc','t2m'));
 lon_era=double(ncread('new_temp.nc','longitude'));
 lat_era=double(ncread('new_temp.nc','latitude'));
 ```
-海冰浓度数据来自NSIDC 2013年的北极海冰数据，原始数据时间步幅为两天一个数据点，为了保证两组数据时间精度一致，将其重新计算为月平均，故数据格式为304*448*12。
+海冰浓度数据来自NSIDC 2013年的北极海冰数据，原始数据时间步幅为两天一个数据点，为了保证两组数据时间精度一致，将其重新计算为月平均，故数据格式为(304,448,12)。
 ```
 load('si_year');
 ```
