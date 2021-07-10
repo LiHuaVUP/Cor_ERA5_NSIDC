@@ -61,3 +61,10 @@ m_coast('linewidth',2,'color','k');
 m_grid('ytick',[],'fontsize',14);
 ```
 ![Image text](https://github.com/LiHuaVUP/Cor_ERA5_NSIDC/blob/main/cor_icet2m.png)
+## 其他问题
+有一些问题需要注意：
+1. 在这里，我只是用了2013年的数据。但实际上，计算相关系数应该需要尽可能长的数据，如10-20年。
+2. 直接使用原始数据计算相关系数是不合适的，因为地球科学中的物理量大都有季节性（如夏季降水多，冬季降水少），直接使用原始数据计算的话计算出的相关系数可能有很大一部分来自这种季节性。因此，在计算相关系数时，通常要用移除了季节性/气候态（seasonality/climatology）之后的差异值（anomaly）来计算。你知道这该如何操作吗？不知道的话请再来问我。
+3. 这个例子中用到了m_map。你用过m_map吗？
+
+
