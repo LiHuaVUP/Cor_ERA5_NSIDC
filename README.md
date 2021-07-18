@@ -41,6 +41,8 @@ for i=1:size(lon_si,1);
         si_here=squeeze(si_year(i,j,:));
         t2m_here=squeeze(t2m_si(i,j,:));
         if nansum(si_here>0)>0;
+            t2m_here(isnan(si_here))=[];
+            si_here(isnan(si_here))=[];
             [c,p]=corr(si_here(:),t2m_here(:));
             cor_used(i,j)=c;
             p_used(i,j)=p;
